@@ -1,12 +1,11 @@
 # Lab 07 — White Box AI (Toaster)
 
-This README explains how to run the lab notebook in Google Colab or locally and how the main models used in the notebook work (Logistic Regression, Decision Tree, SVM, Random Forest, XGBoost). The TA-provided dataset (Siyan) should be used for all evaluation and submission.
+This README explains how the main models used in the notebook work (Logistic Regression, Decision Tree, SVM, Random Forest, XGBoost). The provided dataset (Siyan and Professor) should be used for all evaluation and submission.
 
 ---
 
 ## Contents
 - `ISDN3000C_Lab07.ipynb` — Primary notebook (Steps 1–10). Run cells top-to-bottom.
-- `tutorial.md` — Assignment & submission instructions (duplicated here).
 
 ---
 
@@ -17,23 +16,10 @@ This README explains how to run the lab notebook in Google Colab or locally and 
 ```python
 !pip install -q plotly scikit-learn xgboost
 ```
-4. Load the premade dataset by Professor. Either mount Drive or upload:
-```python
-# Mount Drive (recommended if TA put the data on Google Drive)
-from google.colab import drive
-drive.mount('/content/drive')
-DATA_PATH = '/content/drive/MyDrive/ISDN3000C/toast_dataset.csv'  # update path
+4. Load the premade dataset by  Professor in Colab. 
 
-# or manual upload
-from google.colab import files
-uploaded = files.upload()
-DATA_PATH = list(uploaded.keys())[0]
-
-import pandas as pd
-df = pd.read_csv(DATA_PATH)
-```
 5. Verify column names: `ToastingTime`, `BreadThickness`, `AmbientTemp`, `IsFrozen`, `ToastState`.
-6. If needed, create train/test splits:
+6. Create train/test splits: 80/20
 ```python
 from sklearn.model_selection import train_test_split
 X = df[['ToastingTime','BreadThickness','AmbientTemp','IsFrozen']]
@@ -212,10 +198,5 @@ print(gs.best_params_, gs.best_score_)
 
 ---
 
-## Saving and loading models
-```python
-import joblib
-joblib.dump(final_model, 'final_model.joblib')
-# load:
-model = joblib.load('final_model.joblib')
-```
+
+

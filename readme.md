@@ -19,7 +19,7 @@ This README explains how the main models used in the notebook work (Logistic Reg
 4. Load the premade dataset by  Professor in Colab. 
 
 5. Verify column names: `ToastingTime`, `BreadThickness`, `AmbientTemp`, `IsFrozen`, `ToastState`.
-6. Create train/test splits: 80/20
+6. Create train/test splits: 70/30 typically
 ```python
 from sklearn.model_selection import train_test_split
 X = df[['ToastingTime','BreadThickness','AmbientTemp','IsFrozen']]
@@ -197,6 +197,7 @@ print(gs.best_params_, gs.best_score_)
 - For more reliable interpretation, compute permutation importance (`sklearn.inspection.permutation_importance`) and partial dependence plots (`sklearn.inspection.partial_dependence` / `PartialDependenceDisplay`).
 
 ---
+
 
 
 
